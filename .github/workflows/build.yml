@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      # Cleanup The Actions Workspace Using Custom Composite Run Actio
+      
       - name: Get time
         id: time
         uses: nanzm/get-time-action@v1.1
@@ -29,6 +31,7 @@ jobs:
       release_id: ${{ steps.release.outputs.id }}
   build:
     runs-on: ubuntu-latest
+    # You might want to Checkout your repo first, but not mandatory
     needs: prepare_release
     strategy:
       matrix:
@@ -37,8 +40,10 @@ jobs:
         FLAVOR: [ubuntu]
         BRANCH: [sm8250]
     steps:
+      - name: Cleanup
+        uses: rokibhasansagar/slimhub_actions@main
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Upload Armbian image
         uses: amazingfate/armbian-compile-action@main
         if: matrix.DISTRO == 'armbian'
