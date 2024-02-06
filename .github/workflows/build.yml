@@ -9,6 +9,8 @@ jobs:
   prepare_release:
     runs-on: ubuntu-latest
     steps:
+      - name: Cleanup
+        uses: rokibhasansagar/slimhub_actions@main
       - name: Checkout
         uses: actions/checkout@v3
       # Cleanup The Actions Workspace Using Custom Composite Run Actio
@@ -40,8 +42,6 @@ jobs:
         FLAVOR: [ubuntu]
         BRANCH: [sm8250]
     steps:
-      - name: Cleanup
-        uses: rokibhasansagar/slimhub_actions@main
       - name: Checkout
         uses: actions/checkout@v3
       - name: Upload Armbian image
