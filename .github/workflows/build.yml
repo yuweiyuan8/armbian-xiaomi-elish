@@ -43,7 +43,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Upload Armbian image
-        uses: amazingfate/armbian-compile-action@main
+        uses: yuweiyuan8/armbian-compile-action@main
         if: matrix.DISTRO == 'armbian'
         with:
           branch: ${{ matrix.BRANCH }}
