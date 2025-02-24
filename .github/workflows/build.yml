@@ -35,7 +35,7 @@ jobs:
     needs: prepare_release
     strategy:
       matrix:
-        BOARD: [xiaomi-umi]
+        BOARD: [xiaomi-elish]
         DISTRO: [armbian]
         FLAVOR: [ubuntu]
         BRANCH: [sm8250]
